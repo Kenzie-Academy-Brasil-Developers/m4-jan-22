@@ -1,6 +1,7 @@
-import users from "../../database"
+import User from "../../database/models/User"
 
-const listUserService = () => {
+const listUserService = async () => {
+    const users = await User.find({})
     return users
 }
 

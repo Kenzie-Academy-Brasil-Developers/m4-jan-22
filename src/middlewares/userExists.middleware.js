@@ -1,12 +1,13 @@
-import users from "../database"
+import mongoose from "mongoose"
+import User from "../database/models/User"
 
-const userExists = (request, response, next) => {
+const userExists = async (request, response, next) => {
     const { id } = request.params
-    const user = users.find(user => user.id === id)
+    const user = await User.findById(id).exec()
 
     if(user){
         request.user = user
-        next()
+        return next()
     }
 
     return response.status(404).json({

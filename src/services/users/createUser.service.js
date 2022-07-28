@@ -1,13 +1,10 @@
-import { v4 as uuidv4 } from "uuid"
-import users from "../../database"
+import User from "../../database/models/User"
 
-const createUserService = (userData) => {
-
-    const user = userData
-
-    user.id = uuidv4()
-    users.push(user)
-
+const createUserService = async (userData) => {
+    const user = new User({ ...userData })
+    user.save(function (err) {
+        if (err) return undefined
+    })
     return user
 }
 
