@@ -1,6 +1,6 @@
 import database from "../../database"
 import jwt from "jsonwebtoken"
-import { compare } from "bcrypt"
+import { compare } from "bcryptjs"
 import "dotenv/config"
 
 const createSessionService = async ({email, password}) => {

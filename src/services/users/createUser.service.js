@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid"
 import database from "../../database"
-import { hash } from "bcrypt"
+import { hash } from "bcryptjs"
 
 const createUserService = async (userData) => {
     
